@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "281962672835",
+    "project_id": "petdata-dad1c",
+    "storage_bucket": "petdata-dad1c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:281962672835:android:12174c303e193376c62876",
+        "android_client_info": {
+          "package_name": "com.jkta.pet_healthy_proj"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "281962672835-rfgvq5snoiv2nrdi3ggd521a6bh9q97m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJYzlmzg5QHxPg45utWF3rOkAqHQ5fdpA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "281962672835-rfgvq5snoiv2nrdi3ggd521a6bh9q97m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
