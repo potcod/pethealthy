@@ -35,7 +35,7 @@ class _PetWeightState extends State<PetWeight> {
 
   } //getWeightData
 
-  void _getWeightDifference() async{
+  Future<void> _getWeightDifference() async{
     await FirebaseFirestore.instance.collection("pets").doc("${widget.petID}").get()
         .then((value){
 
@@ -44,14 +44,7 @@ class _PetWeightState extends State<PetWeight> {
           goal =  value.data()?['goal'];
           print("Name is" + name.toString());
 
-          // currentWeight = double.parse(value.data()?['weight']);
-          // print(" New Current Weight:" + currentWeight);
-          //
-          // goal =  double.parse(value.data()?['goal']);
-          // print("New Current Goal:" + goal);
-
           difference = currentWeight-goal;
-
 
     });
 
