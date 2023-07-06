@@ -4,17 +4,50 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_healthy_proj/lineChart.dart';
 import 'package:pet_healthy_proj/weightData.dart';
-
+import 'package:collection/collection.dart';
 
 class PetWeight extends StatefulWidget {
   //const PetWeight({super.key});
   var petID;
   PetWeight({this.petID});
+
   String title = "Weight Insights";
 
   @override
   State<PetWeight> createState() => _PetWeightState();
 }
+
+//List<WeightData> get weightDataForList{
+  //final wdata = <double>[];
+  //
+  // Future<void> getWeightData() async {
+  //   //Get data and use it for weight graph
+  //   await FirebaseFirestore.instance.collection("pets").doc("GWOt6I3jMBKqCkXTGe1v").collection("weightData").get()
+  //       .then((querySnapshot){
+  //     print("Successfully loaded weightData collection");
+  //     querySnapshot.docs.forEach((element) {
+  //
+  //       wdata.add(element.data()['weight']);
+  //       print("Document data:" + element.data()['weight'].toString());
+  //     });
+  //
+  //   }).catchError((error){
+  //     print("Failed to load weight graph data");
+  //     print("Error:" + error);
+  //   });
+  // } //getWeightData
+
+
+  //getWeightData();
+
+  //print("LENGTH OF WDATA:${wdata.length}");
+
+//   return wdata
+//       .mapIndexed(
+//           (index, element) => WeightData(x: index.toDouble(), y: element))
+//       .toList();
+//
+// }
 
 class _PetWeightState extends State<PetWeight> {
   var weightList = [];
@@ -88,9 +121,7 @@ class _PetWeightState extends State<PetWeight> {
               child: Text("Weight Goal:" + goal.toString(), style: TextStyle(fontSize: 20, ),)
           ),
 
-          Text("W List is" + weightList.length.toString()),
-
-
+          //Text("W List is" + weightList.length.toString()),
 
 
         ],

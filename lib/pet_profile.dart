@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:pet_healthy_proj/pet_feeding.dart';
 import 'package:pet_healthy_proj/pet_editor.dart';
 import 'package:pet_healthy_proj/pet_weight.dart';
-import 'package:restart_app/restart_app.dart';
+
 
 class PetProfile extends StatefulWidget {
 
@@ -32,24 +32,8 @@ class _PetProfileState extends State<PetProfile> {
 
   get petID => petID;
   var petDetails = [];
-  void getData(){
-    FirebaseFirestore.instance.collection("pets").get()
-        .then((QuerySnapshot querySnapshot){
-      print("Successfully loaded pets");
+  var name;
 
-      querySnapshot.docs.forEach((QueryDocumentSnapshot document) {
-
-
-      });
-      setState(() {
-      });
-
-    }).catchError((error){
-      print("Failed to load pets");
-      print("Error:" + error);
-    });
-
-  } // getData
   void _goPetWeight(){
     Navigator.push(
         context,
@@ -80,9 +64,24 @@ class _PetProfileState extends State<PetProfile> {
   void clearText() {
     _newWeightController.clear();
   }
+  void initState() {
+    // TODO: implement initState
+    super.initState();
 
+  }
+  void updateInfo() {
+    FirebaseFirestore.instance.collection("pets").doc(widget.petID).snapshots().listen((DocumentSnapshot snapshot) {
+
+      widget.petDetails['weight'] = _newWeightController.text;
+
+      setState(() {
+
+      });
+    });
+  }
   @override
   Widget build(BuildContext context) {
+
 
     return Scaffold(
       appBar: AppBar(
@@ -167,19 +166,16 @@ class _PetProfileState extends State<PetProfile> {
                     ).then((value) {
                         print("Successfully added weight instance");
 
-                        setState(()
-                        {
-                        }
-                        );
+                        setState(() {});
                         _showToast(context);
                         clearText();
 
-                        Restart.restartApp(webOrigin: 'PetProfile');
 
                       }).catchError((error) {
                         print("Failed to add weight");
                         print(error);
                       });
+                    updateInfo();
 
                   },
                   icon: Icon(Icons.check),

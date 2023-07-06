@@ -4,7 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:pet_healthy_proj/pet_create.dart';
 import 'package:pet_healthy_proj/pet_profile.dart';
 import 'firebase_options.dart';
-
+//latest commit
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -82,7 +82,7 @@ void getData(){
     super.initState();
     getData();
   }
-  static const IconData pets = IconData(0xe4a1, fontFamily: 'MaterialIcons');
+  //static const IconData pets = IconData(0xe4a1, fontFamily: 'MaterialIcons');
 
   @override
   Widget build(BuildContext context) {
@@ -132,8 +132,6 @@ void getData(){
                         ),
                       ),
 
-
-
                       Column(
                         children: [
                           Text('${petList[index]['name']}',
@@ -150,17 +148,13 @@ void getData(){
                       ),
 
 
-
                     ],
                   ),
                 ),
 
               ),
             );
-
           }),
-
-
 
     );
   }
